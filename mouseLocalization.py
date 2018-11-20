@@ -25,11 +25,14 @@ up = d1['up']
 down = d1['down']
 regr = dataProcessing.randomForest4up(up,down,100)
 def batchfnc():
-    import tkinter.filedialog
+    import tkinter as tk
+    from tkinter import filedialog
+    root=tk.Tk()
     defaultFolder = '/media/yangx/YXHD-01/data_shared/hangryvideo/'
     currentpath = os.getcwd()
     os.chdir(defaultFolder)
-    folderPath = tkinter.filedialog.askdirectory()
+    folderPath = filedialog.askdirectory()
+    root.destroy()
     vidList = glob.glob(os.path.join(folderPath,'*.mp4'))
     vidList.sort()
 #    time.sleep(4200)
